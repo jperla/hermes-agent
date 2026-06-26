@@ -542,6 +542,7 @@ def _slice_files(
     for f, dur in file_durs:
         # Find the least-loaded bucket.
         min_idx = min(range(slice_count), key=lambda i: bucket_totals[i])
+        print(f"buckets {bucket_totals} file {f} duration {dur} going in bucket {min_idx}")
         bucket_files[min_idx].append(f)
         bucket_totals[min_idx] += dur
 
